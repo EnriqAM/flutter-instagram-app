@@ -1,0 +1,69 @@
+Table users{
+  id int [pk]
+  email text [not null]
+  nickname text
+  name text
+  password text
+  gender text
+  b_date text
+  phone_number text
+  profile_picture int
+}
+
+Table photos{
+  id int [pk]
+  base64image text
+}
+
+Table follows{
+  id int [pk]
+  following_user int
+  followed_user int
+}
+
+Table posts{
+  id int [pk]
+  description text
+  photo_id int
+  post_date text
+}
+
+Table likes{
+  id int [pk]
+  user_id int
+  post_id int
+  like_date text
+}
+
+Table photos_in_post{
+  id int [pk]
+  post_id int
+  photo_id int
+}
+
+Table comments{
+  id int [pk]
+  user_id int
+  comments_date text
+  content text
+  post_id text
+}
+
+Table comments_likes{
+  id int [pk]
+  user_id int
+  comment_id int
+}
+
+
+//Relations
+ref: users.id < follows.following_user
+ref: users.id < follows.followed_user
+ref: photos.id - users.profile_picture
+ref: posts.id < likes.post_id
+ref: users.id < likes.user_id
+ref: photos.id < photos_in_post.photo_id
+ref: posts.id < photos_in_post.post_id
+ref: posts.id < comments.post_id
+ref: comments.id < comments_likes.comment_id
+ref: users.id < comments_likes.user_id
