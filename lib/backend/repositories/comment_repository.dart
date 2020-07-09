@@ -8,7 +8,7 @@ abstract class CommentRepository {
 
   Future<Comment> add(Comment newComment);
   Future<Comment> update(Comment commentToUpdate);
-  Future<bool> remove(int commentId);
+  Future<void> remove(int commentId);
   Future<List<Comment>> findAll();
   Future<List<Comment>> findByPostId(int postId);
 }

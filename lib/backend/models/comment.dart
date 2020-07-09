@@ -5,7 +5,6 @@ class Comment {
   String content;
   int postId;
 
-
   static Comment fromNewComment(int id, Comment otherComment) {
     var comment = new Comment();
     comment.userId = otherComment.userId;
@@ -15,6 +14,4 @@ class Comment {
     comment.id = id;
     return comment;
   }
-  
-}
 }
